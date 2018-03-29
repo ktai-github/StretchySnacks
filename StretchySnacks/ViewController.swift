@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var statusView: UIView!
+  @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,20 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  @IBAction func plusButtonTouched(_ sender: UIButton) {
+    print("plus button pressed")
+    
+    if self.heightConstraint.constant == CGFloat(200) {
+      self.heightConstraint.constant = CGFloat(60)
+      self.view.layoutIfNeeded()
+    }
+    
+    UIView.animate(withDuration: 0.75, delay: 0.5, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.3, options: [], animations: {
+      self.heightConstraint.constant = CGFloat(200)
+      self.view.layoutIfNeeded()
 
+    })
+  }
+  
 }
 
