@@ -47,6 +47,7 @@
                     </view>
                     <connections>
                         <outlet property="heightConstraint" destination="6B0-Uq-OCe" id="lnI-6a-8dp"/>
+                        <outlet property="plusButton" destination="svB-kh-5NC" id="nBw-4f-AK9"/>
                         <outlet property="statusView" destination="NJq-XB-iSc" id="GoV-Tf-NFO"/>
                     </connections>
                 </viewController>
