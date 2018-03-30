@@ -24,20 +24,40 @@
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XM3-ZU-Jq6">
                                         <rect key="frame" x="8" y="5" width="252" height="61"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oreos" translatesAutoresizingMaskIntoConstraints="NO" id="KPr-mu-g6i">
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oreos" translatesAutoresizingMaskIntoConstraints="NO" id="KPr-mu-g6i">
                                                 <rect key="frame" x="0.0" y="0.0" width="50.5" height="61"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Kaa-UT-Kyc" appends="YES" id="IhP-MU-1de"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizza_pockets" translatesAutoresizingMaskIntoConstraints="NO" id="F1x-aO-P8F">
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizza_pockets" translatesAutoresizingMaskIntoConstraints="NO" id="F1x-aO-P8F">
                                                 <rect key="frame" x="50.5" y="0.0" width="50.5" height="61"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Ao5-OW-mGj" appends="YES" id="ABO-Jg-nxN"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_tarts" translatesAutoresizingMaskIntoConstraints="NO" id="vCL-fY-IAX">
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_tarts" translatesAutoresizingMaskIntoConstraints="NO" id="vCL-fY-IAX">
                                                 <rect key="frame" x="101" y="0.0" width="50" height="61"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="js8-KU-wCP" appends="YES" id="lw2-4T-Rl6"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popsicle" translatesAutoresizingMaskIntoConstraints="NO" id="oIg-kG-Djq">
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popsicle" translatesAutoresizingMaskIntoConstraints="NO" id="oIg-kG-Djq">
                                                 <rect key="frame" x="151" y="0.0" width="50.5" height="61"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="bF6-Xy-dpD" appends="YES" id="vsi-FX-6Xh"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ramen" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-bi-8Sa">
+                                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ramen" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-bi-8Sa">
                                                 <rect key="frame" x="201.5" y="0.0" width="50.5" height="61"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ZPw-Da-d1k" appends="YES" id="JUF-lI-urR"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -62,23 +82,81 @@
                                     <constraint firstAttribute="bottom" secondItem="XM3-ZU-Jq6" secondAttribute="bottom" id="v5N-XT-GRT"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5RO-c5-esG">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Asu-FL-vgT" style="IBUITableViewCellStyleDefault" id="Xij-W2-P9A">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xij-W2-P9A" id="jWo-Aa-v2t">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Asu-FL-vgT">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NJq-XB-iSc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="74i-gi-lEn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5RO-c5-esG" secondAttribute="bottom" id="7gw-QY-ilZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="NJq-XB-iSc" secondAttribute="top" constant="20" id="C3B-X3-SMJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NJq-XB-iSc" secondAttribute="trailing" id="CCf-IE-zMf"/>
+                            <constraint firstItem="5RO-c5-esG" firstAttribute="top" secondItem="NJq-XB-iSc" secondAttribute="bottom" id="myp-VR-MD2"/>
+                            <constraint firstItem="5RO-c5-esG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nIb-B2-NRn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5RO-c5-esG" secondAttribute="trailing" id="oMC-Op-C1T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="heightConstraint" destination="0J2-bb-e1C" id="9uq-Al-iCA"/>
+                        <outlet property="oreosTapGestRec" destination="Kaa-UT-Kyc" id="7yA-M1-Rcc"/>
+                        <outlet property="pizzaPopTapGestRec" destination="Ao5-OW-mGj" id="lyX-ng-bQF"/>
                         <outlet property="plusButton" destination="svB-kh-5NC" id="nBw-4f-AK9"/>
+                        <outlet property="popTartTapGestRec" destination="js8-KU-wCP" id="uT8-iR-2pA"/>
+                        <outlet property="popsicleTapGestRec" destination="bF6-Xy-dpD" id="dWm-oK-XfU"/>
+                        <outlet property="ramenTapGestRec" destination="ZPw-Da-d1k" id="Mac-vB-6KS"/>
                         <outlet property="snacksStackView" destination="XM3-ZU-Jq6" id="GWa-Sz-vZD"/>
+                        <outlet property="snacksTableView" destination="5RO-c5-esG" id="o05-Zr-Zc9"/>
                         <outlet property="statusView" destination="NJq-XB-iSc" id="GoV-Tf-NFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Kaa-UT-Kyc">
+                    <connections>
+                        <action selector="oreosTapped:" destination="BYZ-38-t0r" id="Ydc-J8-FnZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Ao5-OW-mGj">
+                    <connections>
+                        <action selector="pizzaPopTapped:" destination="BYZ-38-t0r" id="zHY-jw-XMR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="js8-KU-wCP">
+                    <connections>
+                        <action selector="popTartsTapped:" destination="BYZ-38-t0r" id="dJJ-Ji-1Af"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bF6-Xy-dpD">
+                    <connections>
+                        <action selector="popsicleTapped:" destination="BYZ-38-t0r" id="jkg-AO-zjf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ZPw-Da-d1k">
+                    <connections>
+                        <action selector="ramenTapped:" destination="BYZ-38-t0r" id="1G6-vM-vz5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="24.375" y="28.52112676056338"/>
         </scene>

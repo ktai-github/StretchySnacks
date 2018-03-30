@@ -8,16 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+  @IBOutlet weak var snacksTableView: UITableView!
   @IBOutlet weak var plusButton: UIButton!
   @IBOutlet weak var statusView: UIView!
   @IBOutlet weak var heightConstraint: NSLayoutConstraint!
   @IBOutlet weak var snacksStackView: UIView!
   
+  @IBOutlet var ramenTapGestRec: UITapGestureRecognizer!
+  @IBOutlet var popsicleTapGestRec: UITapGestureRecognizer!
+  @IBOutlet var popTartTapGestRec: UITapGestureRecognizer!
+  @IBOutlet var pizzaPopTapGestRec: UITapGestureRecognizer!
+  @IBOutlet var oreosTapGestRec: UITapGestureRecognizer!
+  
+  var snacksArray: [String] = []
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    
+    snacksTableView.dataSource = self
   }
 
   override func didReceiveMemoryWarning() {
@@ -44,24 +56,6 @@ class ViewController: UIViewController {
     
     let newValue:CGFloat = isNavClosed ? openValue : closedValue
     
-//    if self.heightConstraint.constant == CGFloat(200) {
-//      self.heightConstraint.constant = CGFloat(66)
-//      let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-//      animation.duration = 0.5
-//      animation.fromValue = -0.75
-//      animation.toValue = 0
-//      plusButton.layer.add(animation, forKey: "transform.rotation.z")
-//
-//      UIView.animate(withDuration: 0.75, delay: 0.5, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.3, options: [], animations: {
-//        self.heightConstraint.constant = newValue
-//        self.view.layoutIfNeeded()
-//
-//      })
-//
-//      self.view.layoutIfNeeded()
-//      return
-//    }
-    
     let animation = CABasicAnimation(keyPath: "transform.rotation.z")
     animation.duration = 0.5
     
@@ -74,14 +68,6 @@ class ViewController: UIViewController {
     animation.isRemovedOnCompletion = false;
     plusButton.layer.add(animation, forKey: "transform.rotation.z")
     
-//    let areImagesHidden:Bool = isNavClosed ? true : false
-//    snacksStackView.isHidden = areImagesHidden
-//    if snacksStackView.isHidden == true {
-//      snacksStackView.isHidden = false
-//    } else {
-//      snacksStackView.isHidden = true
-//    }
-    
     snacksStackView.isHidden = !snacksStackView.isHidden
     
     UIView.animate(withDuration: 0.75, delay: 0.5, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.3, options: [], animations: {
@@ -89,8 +75,51 @@ class ViewController: UIViewController {
       self.view.layoutIfNeeded()
     })
     
-
+    
   }
+  
+  @IBAction func oreosTapped(_ sender: Any) {
+    print("oreos tapped")
+    snacksArray.append("Oreos")
+    snacksTableView.reloadData()
+  }
+  
+  @IBAction func pizzaPopTapped(_ sender: Any) {
+    print("pizza pop tapped")
+    snacksArray.append("Pizza Pop")
+    snacksTableView.reloadData()
+  }
+  
+  @IBAction func popTartsTapped(_ sender: Any) {
+    print("pop tarts tapped")
+    snacksArray.append("Pop Tarts")
+    snacksTableView.reloadData()
+  }
+  
+  @IBAction func popsicleTapped(_ sender: Any) {
+    print("popsicle tapped")
+    snacksArray.append("Popsicle")
+    snacksTableView.reloadData()
+  }
+  
+  @IBAction func ramenTapped(_ sender: Any) {
+    print("ramen tapped")
+    snacksArray.append("Ramen")
+    snacksTableView.reloadData()
+  }
+  
+  
+  
+  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return snacksArray.count
+  }
+  
+  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let snacksTableViewCell : UITableViewCell = snacksTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    snacksTableViewCell.textLabel?.text = snacksArray[indexPath.row]
+    return snacksTableViewCell
+  }
+
   
 }
 
