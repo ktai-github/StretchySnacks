@@ -30,6 +30,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Do any additional setup after loading the view, typically from a nib.
     
     snacksTableView.dataSource = self
+    
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+    
+    label.center = CGPoint(x: 160 ,y: 50)
+    label.textAlignment = NSTextAlignment.center
+    label.text = "Snacks"
+    label.tag = 1
+    self.view.addSubview(label)
+
   }
 
   override func didReceiveMemoryWarning() {
@@ -39,7 +48,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
   @IBAction func plusButtonTouched(_ sender: UIButton) {
     print("plus button pressed")
-    
+    let verticalConstraint = NSLayoutConstraint(item: self.view.viewWithTag(1)!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: statusView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 15)
+
+    self.view.viewWithTag(1)?.addConstraint(verticalConstraint)
     let closedValue:CGFloat = 66
     let openValue:CGFloat = 200
     
@@ -105,7 +116,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   @IBAction func ramenTapped(_ sender: Any) {
     print("ramen tapped")
     snacksArray.append("Ramen")
-    snacksTableView.reloadData()
   }
   
   
