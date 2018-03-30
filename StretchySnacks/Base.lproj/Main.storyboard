@@ -19,8 +19,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJq-XB-iSc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                 <subviews>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XM3-ZU-Jq6">
+                                        <rect key="frame" x="8" y="5" width="252" height="61"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oreos" translatesAutoresizingMaskIntoConstraints="NO" id="KPr-mu-g6i">
+                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="61"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizza_pockets" translatesAutoresizingMaskIntoConstraints="NO" id="F1x-aO-P8F">
+                                                <rect key="frame" x="50.5" y="0.0" width="50.5" height="61"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pop_tarts" translatesAutoresizingMaskIntoConstraints="NO" id="vCL-fY-IAX">
+                                                <rect key="frame" x="101" y="0.0" width="50" height="61"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popsicle" translatesAutoresizingMaskIntoConstraints="NO" id="oIg-kG-Djq">
+                                                <rect key="frame" x="151" y="0.0" width="50.5" height="61"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ramen" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-bi-8Sa">
+                                                <rect key="frame" x="201.5" y="0.0" width="50.5" height="61"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="7wZ-5o-VDs"/>
+                                        </constraints>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svB-kh-5NC">
                                         <rect key="frame" x="266" y="26" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -33,26 +56,38 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="6B0-Uq-OCe"/>
+                                    <constraint firstAttribute="height" constant="66" id="0J2-bb-e1C"/>
+                                    <constraint firstItem="XM3-ZU-Jq6" firstAttribute="leading" secondItem="NJq-XB-iSc" secondAttribute="leading" constant="8" id="Dho-XE-I0X"/>
+                                    <constraint firstAttribute="trailing" secondItem="XM3-ZU-Jq6" secondAttribute="trailing" constant="60" id="cS6-Vs-2wE"/>
+                                    <constraint firstAttribute="bottom" secondItem="XM3-ZU-Jq6" secondAttribute="bottom" id="v5N-XT-GRT"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="top" secondItem="NJq-XB-iSc" secondAttribute="top" id="1Aq-8W-oFV"/>
-                            <constraint firstItem="NJq-XB-iSc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="AAu-ai-Q8S"/>
-                            <constraint firstItem="NJq-XB-iSc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iQf-cj-Syp"/>
+                            <constraint firstItem="NJq-XB-iSc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="74i-gi-lEn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="NJq-XB-iSc" secondAttribute="top" constant="20" id="C3B-X3-SMJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NJq-XB-iSc" secondAttribute="trailing" id="CCf-IE-zMf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="heightConstraint" destination="6B0-Uq-OCe" id="lnI-6a-8dp"/>
+                        <outlet property="heightConstraint" destination="0J2-bb-e1C" id="9uq-Al-iCA"/>
                         <outlet property="plusButton" destination="svB-kh-5NC" id="nBw-4f-AK9"/>
+                        <outlet property="snacksStackView" destination="XM3-ZU-Jq6" id="GWa-Sz-vZD"/>
                         <outlet property="statusView" destination="NJq-XB-iSc" id="GoV-Tf-NFO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.375" y="28.52112676056338"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="oreos" width="473" height="514"/>
+        <image name="pizza_pockets" width="298" height="285"/>
+        <image name="pop_tarts" width="299" height="299"/>
+        <image name="popsicle" width="300" height="300"/>
+        <image name="ramen" width="249" height="252"/>
+    </resources>
 </document>
