@@ -16,6 +16,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   @IBOutlet weak var heightConstraint: NSLayoutConstraint!
   @IBOutlet weak var snacksStackView: UIView!
   
+  var labelCenterY = NSLayoutConstraint()
+  var labelCenterX = NSLayoutConstraint()
+  var isNavClosed:Bool = true
+
+  
   @IBOutlet var ramenTapGestRec: UITapGestureRecognizer!
   @IBOutlet var popsicleTapGestRec: UITapGestureRecognizer!
   @IBOutlet var popTartTapGestRec: UITapGestureRecognizer!
@@ -23,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   @IBOutlet var oreosTapGestRec: UITapGestureRecognizer!
   
   var snacksArray: [String] = []
-  
+  var titleLabel = UILabel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,38 +36,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     snacksTableView.dataSource = self
     
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+    titleLabel.textAlignment = NSTextAlignment.center
+    titleLabel.text = "Snacks"
+    titleLabel.isUserInteractionEnabled = true
+    titleLabel.tag = 1
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    statusView.addSubview(titleLabel)
+
+  }
+
+  override func updateViewConstraints(){
+    super.updateViewConstraints()
     
-    label.center = CGPoint(x: 160 ,y: 50)
-    label.textAlignment = NSTextAlignment.center
-    label.text = "Snacks"
-    label.tag = 1
-    self.view.addSubview(label)
-
+    
+    labelCenterY = NSLayoutConstraint(item: titleLabel, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: statusView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+    labelCenterY.isActive = true
+    labelCenterY.identifier = "labelCenterY"
+    labelCenterX = NSLayoutConstraint(item: titleLabel, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: statusView, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+    labelCenterX.isActive = true
+    labelCenterX.identifier = "labelCenterX"
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
+  
   @IBAction func plusButtonTouched(_ sender: UIButton) {
     print("plus button pressed")
-    let verticalConstraint = NSLayoutConstraint(item: self.view.viewWithTag(1)!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: statusView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 15)
 
-    self.view.viewWithTag(1)?.addConstraint(verticalConstraint)
     let closedValue:CGFloat = 66
     let openValue:CGFloat = 200
     
     let rotated:CGFloat = -0.75
     let unrotated:CGFloat = 0
     
-    var isNavClosed:Bool
-    
     if self.heightConstraint.constant == closedValue {
       isNavClosed = true
+      titleLabel.text = "Add a New Snack"
+      labelCenterY.constant = 0
+
     }else{
       isNavClosed = false
+      titleLabel.text = "Snacks"
+      labelCenterY.constant = 40
+
     }
     
     let newValue:CGFloat = isNavClosed ? openValue : closedValue
@@ -86,39 +99,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
       self.view.layoutIfNeeded()
     })
     
-    
+  }
+  
+  fileprivate func AddToTable(snack: String) {
+    print(snack + " tapped")
+    snacksArray.append(snack)
+    snacksTableView.reloadData()
   }
   
   @IBAction func oreosTapped(_ sender: Any) {
-    print("oreos tapped")
-    snacksArray.append("Oreos")
-    snacksTableView.reloadData()
+    AddToTable(snack: "Oreos")
   }
   
   @IBAction func pizzaPopTapped(_ sender: Any) {
-    print("pizza pop tapped")
-    snacksArray.append("Pizza Pop")
-    snacksTableView.reloadData()
+    AddToTable(snack: "Pizza Pop")
   }
   
   @IBAction func popTartsTapped(_ sender: Any) {
-    print("pop tarts tapped")
-    snacksArray.append("Pop Tarts")
-    snacksTableView.reloadData()
+    AddToTable(snack: "Pop Tarts")
   }
   
   @IBAction func popsicleTapped(_ sender: Any) {
-    print("popsicle tapped")
-    snacksArray.append("Popsicle")
-    snacksTableView.reloadData()
+    AddToTable(snack: "Popsicle")
   }
   
   @IBAction func ramenTapped(_ sender: Any) {
-    print("ramen tapped")
-    snacksArray.append("Ramen")
+    AddToTable(snack: "Ramen")
   }
-  
-  
   
   public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return snacksArray.count
